@@ -1,0 +1,13 @@
+body{
+    background: black;
+}
+
+.Logo, .Top_menu{
+    display: inline-block;
+}
+.Top_menu li{
+    display: inline-block;
+}
+.Logo{
+    color: white;
+}

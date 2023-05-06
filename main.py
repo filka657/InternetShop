@@ -6,6 +6,11 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345@localhost/InterShop'
 db = SQLAlchemy(app)
+data = []
+menu = [{'name': 'Товары', 'url': "stuff"},
+        {'name': 'Склады', 'url': "storages"},
+        {'name': 'Производители', 'url': "producers"},
+        {'name': 'История', 'url': "arrivals"}]
 
 
 class Stuff(db.Model):
@@ -56,7 +61,59 @@ class Arrivals(db.Model):
 
 @app.route("/")
 def start():
-    return render_template("index.html")
+    return render_template("index.html", menu=menu)
+
+
+@app.route('/producers')
+def get_producers():
+    info = Producers.query.order_by(Producers.id_producers).all()
+    data.clear()
+    for el in info:
+        dict_json = {'id_producers': el.id_producers, 'name_producers': el.name_producers,
+                     'address_producers': el.address_producers, 'reg_producers': el.reg_producers}
+        data.append(dict_json)
+    articles = jsonify(data)
+    return articles
+
+
+@app.route('/storages')
+def get_storages():
+    info = Storages.query.order_by(Storages.id_storages).all()
+    data.clear()
+    for el in info:
+        dict_json = {'id_storages': el.id_storages, 'name_storages': el.name_storages,
+                     'address_storages': el.address_storages,}
+        data.append(dict_json)
+    articles = jsonify(data)
+    return articles
+
+
+@app.route('/stuff')
+def get_stuff():
+    info = Stuff.query.order_by(Stuff.id_stuff).all()
+    data.clear()
+    for el in info:
+        dict_json = {'id_stuff': el.id_stuff, 'name_stuff': el.name_stuff, 'category_stuff': el.category_stuff,
+                     'color_stuff': el.reg_producers, 'gender_stuff': el.gender_stuff,
+                     'classifier_stuff': el.classifier_stuff, 'description_stuff': el.description_stuff,
+                     }
+        data.append(dict_json)
+    articles = jsonify(data)
+    return articles
+
+
+@app.route('/arrivals')
+def get_arrivals():
+    info = Arrivals.query.order_by(Arrivals.id_arrivals).all()
+    data.clear()
+    for el in info:
+        dict_json = {'id_arrivals': el.id_arrivals, 'stuffid_arrivals': el.name_stuff, 'category_stuff': el.category_stuff,
+                     'color_stuff': el.reg_producers, 'gender_stuff': el.gender_stuff,
+                     'classifier_stuff': el.classifier_stuff, 'description_stuff': el.description_stuff,
+                     }
+        data.append(dict_json)
+    articles = jsonify(data)
+    return articles
 
 
 if __name__ == '__main__':

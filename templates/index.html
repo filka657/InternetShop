@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>InterShop</title>
+    <link type="text/css" href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" />
 </head>
 <body>
-    Start page...
+    <header>
+        <div class="All_header_menu">
+            <div class="Logo">
+                <h1>InterShop</h1>
+            </div>
+            <div class="Top_menu">
+                <ul>
+                    {% for m in menu -%}
+                    <li><a href="{{m.url}}">{{m.name}}</a></li>
+                    {% endfor -%}
+                </ul>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
