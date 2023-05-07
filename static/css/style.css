@@ -1,13 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
     background: black;
 }
+header {
+    display: flex;
+    justify-content: center;
+}
 
 .Logo, .Top_menu{
-    display: inline-block;
-}
-.Top_menu li{
+    margin-top: 60px;
+    margin-right: 25px;
     display: inline-block;
 }
 .Logo{
+    font-family: monserrat;
+    font-size: 40px;
     color: white;
+}
+.Top_menu li{
+    margin-right: 25px;
+    display: inline-block;
+}
+.Top_menu a{
+    font-family: monserrat;
+    font-size: 20px;
+    color: white;
+}
+
+.Top_menu a:hover{
+    color: blue;
+}
+#square {
+    position: center;
+    width: 1160px;
+    height: 410px;
+    left: 108px;
+    top: 868px;
+
+    background: #2A4BA3;
+    border-radius: 40px;
 }
