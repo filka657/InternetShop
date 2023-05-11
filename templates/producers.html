@@ -1,0 +1,28 @@
+{% extends 'pattern.html' %}
+
+{% block body %}
+<h1>Производители
+	<div class="rectangle text_center_middle"><a href="/producers/adding">Добавить</a></div>
+</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Номер</th>
+			<th>Название</th>
+			<th>Адрес</th>
+			<th>Регистрация</th>
+		</tr>
+	</thead>
+	<tbody>
+        {% for el in articles %}
+		<tr>
+			<td>{{el.id_producers}}</td>
+			<td>{{el.name_producers}}</td>
+			<td>{{el.address_producers}}</td>
+			<td>{{el.reg_producers}}</td>
+		</tr>
+        {% endfor %}
+	</tbody>
+</table>
+{% endblock %}

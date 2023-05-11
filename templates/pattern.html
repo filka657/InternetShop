@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link type="text/css" href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="All_header_menu">
+            <div class="Logo">
+                <a href="/">Inter Shop</a>
+            </div>
+            <div class="Top_menu">
+                <ul>
+                    <li><a href="/stuff">Товары</a></li>
+                    <li><a href="/storages">Склады</a></li>
+                    <li><a href="/producers">Производители</a></li>
+                    <li><a href="/arrivals">История</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    {% block body %}{% endblock %}
+</body>
+</html>

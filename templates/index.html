@@ -1,27 +1,13 @@
 <!DOCTYPE html>
+{% extends 'pattern.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>InterShop</title>
     <link type="text/css" href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+    <link rel="import" href="pattern.html"/>
 </head>
 <body>
-    <header>
-        <div class="All_header_menu">
-            <div class="Logo">
-                <h1>InterShop</h1>
-            </div>
-            <div class="Top_menu">
-                <ul>
-                    {% for m in menu -%}
-                    <li><a href="{{m.url}}">{{m.name}}</a></li>
-                    {% endfor -%}
-                </ul>
-            </div>
-            <div id="square">
 
-            </div>
-        </div>
-    </header>
 </body>
 </html>

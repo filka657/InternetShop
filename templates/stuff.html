@@ -1,0 +1,34 @@
+{% extends 'pattern.html' %}
+
+{% block body %}
+<h1>Товары
+	<div class="rectangle text_center_middle"><a href="/stuff/adding">Добавить</a></div>
+</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Номер</th>
+			<th>Название</th>
+			<th>Категория</th>
+            <th>Цвет</th>
+            <th>Пол</th>
+            <th>Классификатор</th>
+            <th>Описание</th>
+		</tr>
+	</thead>
+	<tbody>
+        {% for el in articles %}
+		<tr>
+			<td>{{el.id_stuff}}</td>
+			<td>{{el.name_stuff}}</td>
+			<td>{{el.category_stuff}}</td>
+            <td>{{el.color_stuff}}</td>
+            <td>{{el.gender_stuff}}</td>
+            <td>{{el.classifier_stuff}}</td>
+            <td>{{el.description_stuff}}</td>
+		</tr>
+        {% endfor %}
+	</tbody>
+</table>
+{% endblock %}
