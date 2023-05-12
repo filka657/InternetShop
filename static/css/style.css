@@ -8,13 +8,9 @@
     font-style: normal;
     font-weight: normal;
 }
-/*.All_header_menu {
-    position: center;
-    width: 100%;
-    max-width: 75%;
-    padding: 0 15px;
-    margin: 0 auto;
-}*/
+header {
+    border-bottom: 1px solid #D9D9D9
+}
 body {
     background: #0C1631;
     position: center;

@@ -55,6 +55,7 @@ class Arrivals(db.Model):
         return f"<Arrivals {self.id_arrivals}>"
 
 
+
 @app.route('/producers')
 def get_producers():
     info = Producers.query.order_by(Producers.id_producers).all()
@@ -67,6 +68,15 @@ def get_producers():
     return articles
 
 
+@app.route('/producers/<int:id_producers>', )
+def get_one_producer(id_producers):
+    info_producer = Producers.query.get_or_404(id_producers)
+    dict_json = {'id_producers': info_producer.id_producers, 'name_producers': info_producer.name_producers,
+                 'address_producers': info_producer.address_producers, 'reg_producers': info_producer.reg_producers,}
+    articles = jsonify(dict_json)
+    return articles
+
+
 @app.route('/storages')
 def get_storages():
     info = Storages.query.order_by(Storages.id_storages).all()
@@ -76,6 +86,15 @@ def get_storages():
                      'address_storages': el.address_storages,}
         data.append(dict_json)
     articles = jsonify(data)
+    return articles
+
+
+@app.route('/storages/<int:id_storage>')
+def get_one_storage(id_storage):
+    info_storage = Storages.query.get_or_404(id_storage)
+    dict_json = {'id_storages': info_storage.id_storages, 'name_storages': info_storage.name_storages,
+        'address_storages': info_storage.address_storages, }
+    articles = jsonify(dict_json)
     return articles
 
 
@@ -93,6 +112,17 @@ def get_stuff():
     return articles
 
 
+@app.route('/stuff/<int:id_stuff>')
+def get_one_stuff(id_stuff):
+    info_stuff = Stuff.query.get_or_404(id_stuff)
+    dict_json = {'id_stuff': info_stuff.id_stuff, 'name_stuff': info_stuff.name_stuff, 'category_stuff': info_stuff.category_stuff,
+                 'color_stuff': info_stuff.reg_producers, 'gender_stuff': info_stuff.gender_stuff,
+                 'classifier_stuff': info_stuff.classifier_stuff, 'description_stuff': info_stuff.description_stuff,
+                 }
+    articles = jsonify(dict_json)
+    return articles
+
+
 @app.route('/arrivals')
 def get_arrivals():
     info = Arrivals.query.order_by(Arrivals.id_arrivals).all()
@@ -105,6 +135,11 @@ def get_arrivals():
         data.append(dict_json)
     articles = jsonify(data)
     return articles
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 if __name__ == '__main__':
