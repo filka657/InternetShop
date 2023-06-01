@@ -2,6 +2,23 @@
 
 {% block body %}
 <h1>Добавление нового товара
-	<div class="rectangle text_center_middle"></div>
+	<div class="rectangle text_center_middle"><a href="javascript:history.back()">Назад</a></div>
 </h1>
+<div>
+	<form action="/stuff/adding" method="post">
+		<input type="text" name="name" id="name" class="text_area" placeholder="Название"><br>
+		<input type="text" name="category" id="category" class="text_area" placeholder="Категория"><br>
+		<input type="text" name="color" id="color" class="text_area" placeholder="Цвет"><br>
+		<select name="gender" id="gender" placeholder="Пол">
+			<option disabled>Пол</option>
+			<option value="Мужской">Мужской</option>
+			<option value="Женский">Женский</option>
+			<option >---</option>
+		</select><br>
+<!--		<input type="text" name="gender" id="gender" class="text_area" placeholder="Пол"><br>-->
+		<input type="text" name="classifier" id="classifier" class="text_area" placeholder="Классификатор"><br>
+		<textarea name="description" id="description" placeholder="Описание... (Ограничение 100 символов)"></textarea><br>
+		<input type="submit" class="botton" value="Ввод">
+	</form>
+</div>
 {% endblock %}

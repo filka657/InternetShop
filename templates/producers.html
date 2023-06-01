@@ -11,6 +11,7 @@
 			<th>Номер</th>
 			<th>Название</th>
 			<th>Адрес</th>
+			<th>Телефон</th>
 			<th>Регистрация</th>
 		</tr>
 	</thead>
@@ -20,7 +21,12 @@
 			<td>{{el.id_producers}}</td>
 			<td>{{el.name_producers}}</td>
 			<td>{{el.address_producers}}</td>
-			<td>{{el.reg_producers}}</td>
+			<td>{{el.telephone_producers}}</td>
+			<td class="prelast_column">{{el.reg_producers}}</td>
+			<td class="last_column">
+				<a href="/producers/{{el.id_producers}}/put">Изменить</a>
+				<a href="http://127.0.0.1:5000/producers/{{el.id_producers}}/delete">Удалить</a>
+			</td>
 		</tr>
         {% endfor %}
 	</tbody>

@@ -1,0 +1,24 @@
+{% extends 'pattern.html' %}
+
+{% block body %}
+<h1>Изменение данных товара
+	<div class="rectangle text_center_middle"><a href="javascript:history.back()">Назад</a></div>
+</h1>
+<div>
+	<form method="post">
+		<input type="text" name="name" id="name" class="text_area" value="{{info_stuff.name_stuff}}" placeholder="Название"><br>
+		<input type="text" name="category" id="category" class="text_area" value="{{info_stuff.category_stuff}}" placeholder="Категория"><br>
+		<input type="text" name="color" id="color" class="text_area" value="{{info_stuff.color_stuff}}" placeholder="Цвет"><br>
+		<select name="gender" id="gender" value="{{info_stuff.gender_stuff}}" placeholder="Пол">
+			<option disabled>Пол</option>
+			<option value="Мужской">Мужской</option>
+			<option value="Женский">Женский</option>
+			<option >---</option>
+		</select><br>
+<!--		<input type="text" name="gender" id="gender" class="text_area" placeholder="Пол"><br>-->
+		<input type="text" name="classifier" id="classifier" class="text_area" value="{{info_stuff.classifier_stuff}}" placeholder="Классификатор"><br>
+		<textarea name="description" id="description" value="{{info_stuff.description_stuff}}" placeholder="Описание... (Ограничение 100 символов)">{{info_stuff.description_stuff}}</textarea><br>
+		<input type="submit" class="botton" value="Изменить">
+	</form>
+</div>
+{% endblock %}

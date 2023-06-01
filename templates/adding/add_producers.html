@@ -2,6 +2,15 @@
 
 {% block body %}
 <h1>Добавление нового производителя
-	<div class="rectangle text_center_middle"></div>
+	<div class="rectangle text_center_middle"><a href="javascript:history.back()">Назад</a></div>
 </h1>
+<div>
+	<form method="post">
+		<input type="text" name="name" id="name" class="text_area" placeholder="Название"><br>
+		<input type="text" name="address" id="address" class="text_area" placeholder="Адрес"><br>
+		<input type="text" name="telephone" id="telephone" class="text_area" placeholder="Телефон"><br>
+		<input type="text" name="reg" id="reg" class="text_area" placeholder="Регистрация"><br>
+		<input type="submit" value="Ввод">
+	</form>
+</div>
 {% endblock %}

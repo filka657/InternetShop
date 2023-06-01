@@ -26,7 +26,11 @@
             <td>{{el.color_stuff}}</td>
             <td>{{el.gender_stuff}}</td>
             <td>{{el.classifier_stuff}}</td>
-            <td>{{el.description_stuff}}</td>
+            <td class="prelast_column">{{el.description_stuff}}</td>
+			<td class="last_column">
+				<a href="/stuff/{{el.id_stuff}}/put">Изменить</a>
+				<a href="http://127.0.0.1:5000/stuff/{{el.id_stuff}}/delete">Удалить</a>
+			</td>
 		</tr>
         {% endfor %}
 	</tbody>

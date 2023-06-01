@@ -1,0 +1,16 @@
+{% extends 'pattern.html' %}
+
+{% block body %}
+<h1>Изменение данных производителя
+	<div class="rectangle text_center_middle"><a href="javascript:history.back()">Назад</a></div>
+</h1>
+<div>
+	<form method="post">
+		<input type="text" name="name" id="name" class="text_area" value="{{info_producer.name_producers}}" placeholder="Название"><br>
+		<input type="text" name="address" id="address" class="text_area" value="{{info_producer.address_producers}}" placeholder="Адрес"><br>
+		<input type="text" name="telephone" id="telephone" class="text_area" value="{{info_producer.telephone_producers}}" placeholder="Телефон"><br>
+		<input type="text" name="reg" id="reg" class="text_area" value="{{info_producer.reg_producers}}" placeholder="Регистрация"><br>
+		<input type="submit" value="Изменить">
+	</form>
+</div>
+{% endblock %}

@@ -21,7 +21,7 @@ body {
 }
 .Logo, .Top_menu{
     margin-top: 20px;
-    margin-right: 25px;
+        margin-right: 25px;
     display: inline-block;
 }
 .Logo{
@@ -63,6 +63,7 @@ h1 {
     color: #D9D9D9;
     margin-top: 40px;
     margin-bottom: 40px;
+    margin-right: 25px;
 }
 .rectangle {
     float: right;
@@ -128,6 +129,81 @@ h1 {
     background: #D9D9D9;
 }
 .table tbody tr td:last-child {
+    width: 160px;
+	text-align: center;
+    background: #0C1631;
+    padding: 5px;
+}
+.prelast_column {
 	border-radius: 0 8px 8px 0;
+    background: #0C1631;
+}
+.last_column {
+    width: 160px;
+	text-align: center;
+    background: #0C1631;
+    padding: 5px;
+}
+.last_column a{
+    margin-right: 5px;
+    color: #D9D9D9;
+    text-decoration: none;
+}
+.last_column a:hover {
+    color: #2A4BA3;
+    text-decoration: none;
+}
+
+.Num{
+    margin-top: 20px;
+    /*margin-left: 200px;*/
+    color: black;
+    font-size: 35px;
+    font-family: 'Oswald';
+    margin: 0 auto;
+    float: center;
+    align-items: center
+    justify-content: center;
+    display: flex;
+}
+
+.rectangle_storages{
+    margin-right: auto;
+    margin-left: auto;
+    float: center;
+    width: 440px;
+    height: 300px;
+    display: inline-block;
     background: #D9D9D9;
+    border-radius: 40px;
+    text-align: center;
+}
+.rectangle_storages ul{
+    list-style-type:  none;
+}
+.smotret{
+    margin-top: 35px;
+    text-decoration: none;
+}
+
+.smotret a{
+    margin-top: 35px;
+    color: black;
+    text-decoration: none;
+}
+
+.smotret a:hover{
+    color: #2A4BA3;
+}
+.storage_info{
+    display: inline-block;
+    font-family: 'Oswald';
+    font-size: 30px;
+}
+.storage_info a{
+    margin-right: 25px;
+}
+.storage_info li{
+    margin-right: 10px;
+    display: inline-block;
 }

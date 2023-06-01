@@ -1,0 +1,34 @@
+{% extends 'pattern.html' %}
+
+{% block body %}
+<h1>
+	<div class="storage_info">
+		{% for el in storage_info %}
+		<ul>
+			<li><a>Склад:</a></li>
+			<li>"{{el.name_storages}}"</li>
+			<li>{{el.address_storages}}</li>
+			<li>тел.: {{el.telephone_storages}}</li>
+		</ul>
+		{% endfor %}
+	</div>
+</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Товар</th>
+			<th>Кол-во</th>
+            <th>Производитель</th>
+		</tr>
+	</thead>
+	<tbody>
+        {% for el in articles %}
+		<tr>
+			<td>{{el.stuffid_storage1}}</td>
+			<td>{{el.quentitystuff_storage1}}</td>
+            <td>{{el.prodid_storage1}}</td>
+		</tr>
+        {% endfor %}
+	</tbody>
+</table>
+{% endblock %}

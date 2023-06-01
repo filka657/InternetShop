@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "Oswald";
+    src: url("../fonts/Oswald-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.text_area{
+    width:70%;
+    height: 30px;
+    padding:20px;
+}
+input[type=text] {
+    padding: 10px;
+    margin:10px 0;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+    font-family: 'Oswald';
+    font-size: 20px;
+}
+textarea {
+    width:70%;
+    margin:10px 0;
+    resize: vertical;
+    padding:10px;
+    border-radius:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    height:150px;
+    font-family: 'Oswald';
+    font-size: 20px;
+}
+input[type=submit] {
+    width:7%;
+    height: 40px;
+    margin:10px 0;
+    margin:10px 0;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+select {
+    width:10%;
+    height: 50px;
+    padding:20px;
+    padding: 10px;
+    margin:10px 0;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius: 10px;
+    font-family: 'Oswald';
+    font-size: 20px;
+}

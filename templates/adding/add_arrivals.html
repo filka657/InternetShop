@@ -1,7 +1,40 @@
 {% extends 'pattern.html' %}
 
 {% block body %}
-<h1>Добавление нового поступления
-	<div class="rectangle text_center_middle"></div>
+<h1>Добавление новой поставки
+	<div class="rectangle text_center_middle"><a href="javascript:history.back()">Назад</a></div>
 </h1>
+<div>
+	<form action="/arrivals/adding" method="post">
+		<input type="text" class="text_area" placeholder="Товар"><br>
+		<select name="stuff" id="stuff" placeholder="Товар">
+			<option disabled>Товар</option>
+			{% for el in data %}
+				<optgroup label="{{el.category}}">
+					{% for i in el.stuff%}
+					<option value="{{i}}">{{i}}</option>
+					{% endfor %}
+				</optgroup>
+			{% endfor %}
+		</select><br>
+		<input type="text" class="text_area" placeholder="Количество"><br>
+		<input type="text" class="text_area" placeholder="Производитель"><br>
+		<select name="producers" id="producers" placeholder="Производитель">
+			<option disabled>Производитель</option>
+			{% for el in info_producers %}
+				<option value="{{el.name_storages}}">{{el.name_producers}}</option>
+			{% endfor %}
+		</select><br>
+		<input type="text" class="text_area" placeholder="Склад"><br>
+		<select name="storage" id="storage" placeholder="Склад">
+			<option disabled>Склад</option>
+			{% for el in info_storages %}
+				<option value="{{el.name_storages}}">{{el.name_storages}}</option>
+			{% endfor %}
+		</select><br>
+		<input type="text" class="text_area" placeholder="Накладная"><br>
+		<input type="text" class="text_area" placeholder="Счет"><br>
+		<input type="submit" class="botton" value="Ввод">
+	</form>
+</div>
 {% endblock %}

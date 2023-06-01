@@ -2,25 +2,20 @@
 
 {% block body %}
 <h1>Склады
-	<div class="rectangle text_center_middle"><a href="/storages/adding">Добавить</a></div>
+<!--	<div class="rectangle text_center_middle"><a href="/storages/adding">Добавить</a></div>-->
 </h1>
+<div class="Num">
+	{%for el in articles %}
+		<div class="rectangle_storages">
+			<ul>
+				<li>{{el.name_storages}}</li>
+				<li>{{el.address_storages}}</li>
+				<li>{{el.telephone_storages}}</li>
+				<li><div class="smotret"><a href="/storages/{{el.id_storages}}">Смотреть <img src="/static/pics/right-arrow.png"></a></div></li>
+			</ul>
 
-<table class="table">
-	<thead>
-		<tr>
-			<th>Номер</th>
-			<th>Название</th>
-			<th>Адрес</th>
-		</tr>
-	</thead>
-	<tbody>
-        {% for el in articles %}
-		<tr>
-			<td>{{el.id_storages}}</td>
-			<td>{{el.name_storages}}</td>
-			<td>{{el.address_storages}}</td>
-		</tr>
-        {% endfor %}
-	</tbody>
-</table>
+		</div>
+	{% endfor %}
+</div>
+
 {% endblock %}
