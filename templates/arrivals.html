@@ -28,7 +28,10 @@
             <td>{{el.storeid_arrivals}}</td>
             <td>{{el.datetime_arrivals}}</td>
             <td>{{el.invoice_arrivals}}</td>
-			<td>{{el.check_arrivals}}</td>
+			<td calss="prelast_column">{{el.check_arrivals}}</td>
+			<td class="last_column">
+				<a href="http://127.0.0.1:5000/arrivals/{{el.id_arrivals}}/delete">Удалить</a>
+			</td>
 		</tr>
         {% endfor %}
 	</tbody>

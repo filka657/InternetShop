@@ -1,6 +1,8 @@
 import json
 from flask import Flask, jsonify, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+import pytz
 
 
 app = Flask(__name__)
@@ -58,27 +60,27 @@ class Arrivals(db.Model):
 
 
 class Storage1(db.Model):
-    stuffid_storage1 = db.Column(db.Integer, db.ForeignKey('stuff.id_stuff'), primary_key=True)
-    prodid_storage1 = db.Column(db.Integer, db.ForeignKey('producers.id_producers'))
-    quentitystuff_storage1 = db.Column(db.Integer)
+    stuffid_storage = db.Column(db.Integer, db.ForeignKey('stuff.id_stuff'), primary_key=True)
+    prodid_storage = db.Column(db.Integer, db.ForeignKey('producers.id_producers'))
+    quentitystuff_storage = db.Column(db.Integer)
 
     def __repr__(self):
         return f"<Storage1 {self.stuffid_storage1}>"
 
 
 class Storage2(db.Model):
-    stuffid_storage2 = db.Column(db.Integer, db.ForeignKey('stuff.id_stuff'), primary_key=True)
-    prodid_storage2 = db.Column(db.Integer, db.ForeignKey('producers.id_producers'))
-    quentitystuff_storage2 = db.Column(db.Integer)
+    stuffid_storage = db.Column(db.Integer, db.ForeignKey('stuff.id_stuff'), primary_key=True)
+    prodid_storage = db.Column(db.Integer, db.ForeignKey('producers.id_producers'))
+    quentitystuff_storage = db.Column(db.Integer)
 
     def __repr__(self):
         return f"<Storage2 {self.stuffid_storage2}>"
 
 
 class Storage3(db.Model):
-    stuffid_storage3 = db.Column(db.Integer, db.ForeignKey('stuff.id_stuff'), primary_key=True)
-    prodid_storage3 = db.Column(db.Integer, db.ForeignKey('producers.id_producers'))
-    quentitystuff_storage3 = db.Column(db.Integer)
+    stuffid_storage = db.Column(db.Integer, db.ForeignKey('stuff.id_stuff'), primary_key=True)
+    prodid_storage = db.Column(db.Integer, db.ForeignKey('producers.id_producers'))
+    quentitystuff_storage = db.Column(db.Integer)
 
     def __repr__(self):
         return f"<Storage3 {self.stuffid_storage3}>"
@@ -226,25 +228,73 @@ def delete_stuff(id_stuff):
 
 @app.route('/arrivals')
 def get_arrivals():
-    info = Arrivals.query.order_by(Arrivals.id_arrivals).all()
+    info = Arrivals.query.order_by(Arrivals.id_arrivals.desc()).all()
     data.clear()
     for el in info:
-        dict_json = {'id_arrivals': el.id_arrivals, 'stuffid_arrivals': el.name_stuff, 'category_stuff': el.category_stuff,
-                     'color_stuff': el.reg_producers, 'gender_stuff': el.gender_stuff,
-                     'classifier_stuff': el.classifier_stuff, 'description_stuff': el.description_stuff,
-                     }
+        dict_json = {'id_arrivals': el.id_arrivals, 'stuffid_arrivals': el.stuffid_arrivals, 'quentity_arrivals': el.quentity_arrivals,
+                     'prodid_arrivals': el.prodid_arrivals, 'storeid_arrivals': el.storeid_arrivals,
+                     'datetime_arrivals': el.datetime_arrivals, 'invoice_arrivals': el.invoice_arrivals,
+                     'check_arrivals': el.check_arrivals,}
         data.append(dict_json)
     articles = jsonify(data)
     return articles
 
 
+@app.route('/arrivals/adding', methods=['POST'])
+def add_arrivals():
+    with app.app_context():
+        stuffid_arrivals = request.json['stuffid_arrivals']
+        quentity_arrivals = request.json['quentity_arrivals']
+        prodid_arrivals = request.json['prodid_arrivals']
+        storeid_arrivals = request.json['storeid_arrivals']
+        datetime_arrivals = datetime.now(pytz.timezone('Europe/Moscow')).strftime("%Y-%m-%d %H:%M:%S")
+        invoice_arrivals = request.json['invoice_arrivals']
+        check_arrivals = request.json['check_arrivals']
+        arrival = Arrivals(stuffid_arrivals=stuffid_arrivals, quentity_arrivals=quentity_arrivals,
+                      prodid_arrivals=prodid_arrivals, storeid_arrivals=storeid_arrivals,
+                      datetime_arrivals=datetime_arrivals,
+                      invoice_arrivals=invoice_arrivals, check_arrivals=check_arrivals)
+        db.session.add(arrival)
+        if storeid_arrivals == '1':
+            if Storage1.query.get(stuffid_arrivals):
+                storage = Storage1.query.get(stuffid_arrivals)
+                storage.quentitystuff_storage = str(int(storage.quentitystuff_storage) + int(quentity_arrivals))
+            else:
+                storage = Storage1(stuffid_storage=stuffid_arrivals, prodid_storage=prodid_arrivals,
+                               quentitystuff_storage=quentity_arrivals)
+        elif storeid_arrivals == '2':
+            if Storage2.query.get(stuffid_arrivals):
+                storage = Storage2.query.get(stuffid_arrivals)
+                storage.quentitystuff_storage = str(int(storage.quentitystuff_storage) + int(quentity_arrivals))
+            else:
+                storage = Storage2(stuffid_storage=stuffid_arrivals, prodid_storage=prodid_arrivals,
+                               quentitystuff_storage=quentity_arrivals)
+        elif storeid_arrivals == '3':
+            if Storage3.query.get(stuffid_arrivals):
+                storage = Storage3.query.get(stuffid_arrivals)
+                storage.quentitystuff_storage = str(int(storage.quentitystuff_storage) + int(quentity_arrivals))
+            else:
+                storage = Storage3(stuffid_storage=stuffid_arrivals, prodid_storage=prodid_arrivals,
+                               quentitystuff_storage=quentity_arrivals)
+        db.session.add(storage)
+        db.session.commit()
+
+
+@app.route('/arrivals/<int:id_arrivals>/delete')
+def delete_arrivals(id_arrivals):
+    info_arrivals = Arrivals.query.get_or_404(id_arrivals)
+    db.session.delete(info_arrivals)
+    db.session.commit()
+    return redirect('http://127.0.0.1:5001/arrivals')
+
+
 @app.route('/storage/1')
 def get_storage1():
-    info = Storage1.query.order_by(Storage1.stuffid_storage1).all()
+    info = Storage1.query.order_by(Storage1.stuffid_storage).all()
     data.clear()
     for el in info:
-        dict_json = {'stuffid_storage1': el.stuffid_storage1, 'prodid_storage1': el.prodid_storage1,
-                     'quentitystuff_storage1': el.quentitystuff_storage1,}
+        dict_json = {'stuffid_storage': el.stuffid_storage, 'prodid_storage': el.prodid_storage,
+                     'quentitystuff_storage': el.quentitystuff_storage,}
         data.append(dict_json)
     articles = jsonify(data)
     return articles
@@ -252,11 +302,11 @@ def get_storage1():
 
 @app.route('/storage/2')
 def get_storage2():
-    info = Storage2.query.order_by(Storage2.stuffid_storage2).all()
+    info = Storage2.query.order_by(Storage2.stuffid_storage).all()
     data.clear()
     for el in info:
-        dict_json = {'stuffid_storage2': el.stuffid_storage2, 'prodid_storage2': el.prodid_storage2,
-                     'quentitystuff_storage2': el.quentitystuff_storage2,}
+        dict_json = {'stuffid_storage': el.stuffid_storage, 'prodid_storage': el.prodid_storage,
+                     'quentitystuff_storage': el.quentitystuff_storage,}
         data.append(dict_json)
     articles = jsonify(data)
     return articles
@@ -264,11 +314,11 @@ def get_storage2():
 
 @app.route('/storage/3')
 def get_storage3():
-    info = Storage3.query.order_by(Storage3.stuffid_storage3).all()
+    info = Storage3.query.order_by(Storage3.stuffid_storage).all()
     data.clear()
     for el in info:
-        dict_json = {'stuffid_storage3': el.stuffid_storage3, 'prodid_storage3': el.prodid_storage3,
-                     'quentitystuff_storage3': el.quentitystuff_storage3,}
+        dict_json = {'stuffid_storage': el.stuffid_storage, 'prodid_storage': el.prodid_storage,
+                     'quentitystuff_storage': el.quentitystuff_storage,}
         data.append(dict_json)
     articles = jsonify(data)
     return articles
@@ -277,6 +327,10 @@ def get_storage3():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+
+with app.app_context():
+    db.create_all()
 
 
 if __name__ == '__main__':

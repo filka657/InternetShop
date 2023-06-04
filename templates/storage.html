@@ -12,11 +12,12 @@
 		</ul>
 		{% endfor %}
 	</div>
+		<div class="rectangle text_center_middle"><a href="javascript:history.back()">Назад</a></div>
 </h1>
-<table class="table">
+<table class="table_storage">
 	<thead>
 		<tr>
-			<th>Товар</th>
+			<th>Номер товара</th>
 			<th>Кол-во</th>
             <th>Производитель</th>
 		</tr>
@@ -24,9 +25,9 @@
 	<tbody>
         {% for el in articles %}
 		<tr>
-			<td>{{el.stuffid_storage1}}</td>
-			<td>{{el.quentitystuff_storage1}}</td>
-            <td>{{el.prodid_storage1}}</td>
+			<td>{{el.stuffid_storage}}</td>
+			<td>{{el.quentitystuff_storage}}</td>
+            <td>{{el.prodid_storage}}</td>
 		</tr>
         {% endfor %}
 	</tbody>
