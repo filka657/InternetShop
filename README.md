@@ -4,4 +4,4 @@ Web application development as a course work on the subject of Methods and means
 
 ## Database schema
 
-![database_schema] (misc/images/database_schema.png)
+![database_schema](misc/images/database_schema.png)
