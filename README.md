@@ -1,3 +1,5 @@
 # InternetShop
 
-Web application development
+Web application development as a course work on the subject of Methods and means of designing information systems and technologies
+
+## Database schema
