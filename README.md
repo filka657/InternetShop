@@ -19,25 +19,20 @@ The project is an internet shop management system that allows the administrator 
 - Requests
 
 ## Project structure
-```
 .  
 ├── [db_connection](https://github.com/filka657/InternetShop/tree/develop/db_connection/)/                      # folder for the database connection module  
-|    ├── Task1/  
-|    ├── Task2/  
-|    ├── Task3/  
-|    ├── Task4/  
-|    ├── Qualification_Tasks.pdf        # full description of the tasks  
-|    └── README.md                      # short description of the tasks  
+|    ├── main.py                                                                                                # full description of the tasks  
+|    └── README.md                                                                                              # short description of the tasks  
 |  
-├── MainPart/  
-|    ├── monolith_client/               # the latest working version  
-|    ├── mqtt_gpio/                     # modern code-style, but unstabely working on robot example  
-|    ├── Convert_coordinates.cpp        # cpp code for convertion for screen to floor coordinates  
-|    └── mosquitto.conf                 # basic config for mqtt broker  
+├── [static](https://github.com/filka657/InternetShop/tree/develop/static)
+|    ├── [css](https://github.com/filka657/InternetShop/tree/develop/static/css)
+|    ├── [fonts](https://github.com/filka657/InternetShop/tree/develop/static/fonts)
+|    └── [pics](https://github.com/filka657/InternetShop/tree/develop/static/pics)
 |
-├── entities/                           # tries of the IPC implementation  
-|  
-├── .gitignore  
-├── antivirus.png  
+├── [templates](https://github.com/filka657/InternetShop/tree/develop/templates)
+|    ├── [putting](https://github.com/filka657/InternetShop/tree/develop/templates/putting)
+|    ├── [adding](https://github.com/filka657/InternetShop/tree/develop/templates/adding)
+|    └── *.html 
+|
+├── [main.py](https://github.com/filka657/InternetShop/blob/develop/main.py)
 └── README.md                           # you are here  
-```
