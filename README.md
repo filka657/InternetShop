@@ -14,5 +14,6 @@ The project is an internet shop management system that allows the administrator 
 
 ## Used libraries
 
--- Flask
---  
+- Flask
+- SQLAlchemy
+- Requests
