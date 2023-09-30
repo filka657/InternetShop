@@ -21,7 +21,7 @@ The project is an internet shop management system that allows the administrator 
 ## Project structure
 ```
 .  
-├── [db_connection](https://github.com/filka657/InternetShop/tree/develop/db_connection)/                      # folder for the database connection module  
+├── [db_connection](https://github.com/filka657/InternetShop/tree/develop/db_connection/)/                      # folder for the database connection module  
 |    ├── Task1/  
 |    ├── Task2/  
 |    ├── Task3/  
