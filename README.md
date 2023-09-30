@@ -19,6 +19,7 @@ The project is an internet shop management system that allows the administrator 
 - Requests
 
 ## Project structure
+```
 .  
 ├── [db_connection](https://github.com/filka657/InternetShop/tree/develop/db_connection/)/                      # folder for the database connection module  
 |    ├── main.py                                                                                                # full description of the tasks  
@@ -35,4 +36,5 @@ The project is an internet shop management system that allows the administrator 
 |    └── *.html 
 |
 ├── [main.py](https://github.com/filka657/InternetShop/blob/develop/main.py)
-└── README.md                           # you are here  
+└── README.md                           # you are here
+```
