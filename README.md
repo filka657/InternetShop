@@ -19,22 +19,16 @@ The project is an internet shop management system that allows the administrator 
 - Requests
 
 ## Project structure
-```
-.  
-├── [db_connection](https://github.com/filka657/InternetShop/tree/develop/db_connection/)/                      # folder for the database connection module  
-|    ├── main.py                                                                                                # full description of the tasks  
-|    └── README.md                                                                                              # short description of the tasks  
-|  
-├── [static](https://github.com/filka657/InternetShop/tree/develop/static)
-|    ├── [css](https://github.com/filka657/InternetShop/tree/develop/static/css)
-|    ├── [fonts](https://github.com/filka657/InternetShop/tree/develop/static/fonts)
-|    └── [pics](https://github.com/filka657/InternetShop/tree/develop/static/pics)
-|
-├── [templates](https://github.com/filka657/InternetShop/tree/develop/templates)
-|    ├── [putting](https://github.com/filka657/InternetShop/tree/develop/templates/putting)
-|    ├── [adding](https://github.com/filka657/InternetShop/tree/develop/templates/adding)
-|    └── *.html 
-|
-├── [main.py](https://github.com/filka657/InternetShop/blob/develop/main.py)
-└── README.md                           # you are here
-```
+
+- [db_connection](https://github.com/filka657/InternetShop/tree/develop/db_connection)
+  - main.py 
+- [static](https://github.com/filka657/InternetShop/tree/develop/static)
+  - [css](https://github.com/filka657/InternetShop/tree/develop/static/css)
+  - [fonts](https://github.com/filka657/InternetShop/tree/develop/static/fonts)
+  - [pics](https://github.com/filka657/InternetShop/tree/develop/static/pics)
+- [templates](https://github.com/filka657/InternetShop/tree/develop/templates)
+  - [putting](https://github.com/filka657/InternetShop/tree/develop/templates/putting)
+  - [adding](https://github.com/filka657/InternetShop/tree/develop/templates/adding)
+  - *.html 
+- [main.py](https://github.com/filka657/InternetShop/blob/develop/main.py)
+- README.md
