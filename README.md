@@ -12,7 +12,7 @@ The project is an internet shop management system that allows the administrator 
 ![database_schema](misc/images/database_schema.png)
 
 
-## Used libraries
+## Technologies
 
 - Flask
 - SQLAlchemy
@@ -20,15 +20,27 @@ The project is an internet shop management system that allows the administrator 
 
 ## Project structure
 
-- [db_connection](https://github.com/filka657/InternetShop/tree/develop/db_connection)
-  - main.py 
-- [static](https://github.com/filka657/InternetShop/tree/develop/static)
-  - [css](https://github.com/filka657/InternetShop/tree/develop/static/css)
-  - [fonts](https://github.com/filka657/InternetShop/tree/develop/static/fonts)
-  - [pics](https://github.com/filka657/InternetShop/tree/develop/static/pics)
-- [templates](https://github.com/filka657/InternetShop/tree/develop/templates)
-  - [putting](https://github.com/filka657/InternetShop/tree/develop/templates/putting)
-  - [adding](https://github.com/filka657/InternetShop/tree/develop/templates/adding)
-  - *.html 
-- [main.py](https://github.com/filka657/InternetShop/blob/develop/main.py)
-- README.md
+```
+.  
+├── db_connection/                       # module for connection with database
+|    ├── templates/                      # html files
+|    | 
+|    └── main.py                         # module for connection with database 
+|  
+|  
+├── static/                              # components for page styling  
+|    ├── css/                            # css files for page styling  
+|    ├── fonts/                          # used font on pages
+|    └── pics/                           # used pictures on pages
+|
+|
+├── templates/                           # contains all the project's HTML files that display the content  
+|    ├── putting/                        # pages for putting entries 
+|    ├── adding/                         # pages for adding entries
+|    |
+|    └── *.html                          # pages for display the content
+|  
+|  
+├── main.py                              # API module
+└── README.md
+```
